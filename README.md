@@ -1,6 +1,6 @@
 # text-similarity
 
-This program calculates n-gram similary between two inputs.
+This program calculates n-gram similarity between two inputs.
 
 End of paragraph is '---'. Please see the test folder for examples.
 
