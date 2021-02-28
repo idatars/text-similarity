@@ -1,28 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////
-// INTEGRITY INSTRUCTIONS (v2)
-
-// Explicitly state the level of collaboration on this question
-// Examples:
-//   * I discussed ideas with classmate(s) [include name(s)]
-//   * I worked together with classmate(s) in the lab [include name(s)]
-//   * Classmate [include name] helped me debug my code
-//   * I consulted website [include url]
-//   * None
-//
-// A "None" indicates you completed this question entirely by yourself
-// (or with assistance from course staff, which you do not have to mention)
-/////////////////////////////////////////////////////////////////////////////
-// INTEGRITY STATEMENT:
-// I received help from and/or collaborated with:
-
-// None
-
-// Name: Isabel Lau Datars
-// login ID: idatars
-/////////////////////////////////////////////////////////////////////////////
-
 // This program computes n_gram similarity between two inputs
-
 
 #include "cs136-trace.h"
 #include "str-list.h"
@@ -31,7 +7,6 @@
 #include <assert.h>
 #include <stdio.h>
 
-// DO NOT CHANGE: USED TO DETECT THE END OF A PORTION OF TEXT ////
 static const char END_OF_PARAGRAPH[] = "---";
 /////////////////////////////////////////////////////////////////
 
@@ -119,7 +94,6 @@ void read_input (struct str_list *s) {
 //   NOT required to be UNIQUE.
 // effects: modifies dest
 // requires: src and dest must not be null and n_gram_len > 0
-// time: O(S*N^2 + N*W*S - N^3 - W*N^2) where S is the number of words
 // in the source, W is the length of the largest words in S, and
 // N is the n gram length
 void create_n_grams(struct str_list *src, struct str_list *dest,
@@ -146,7 +120,6 @@ void create_n_grams(struct str_list *src, struct str_list *dest,
 // are also in t. It returns by pointers the number of unique elements
 // of each by k1 and k2
 // requires: s, t, k1, k2 are valid pointers
-// time: O(S+T) where s is the number of elements in s and T is the number
 // of elements in T
 int unique_n_grams(struct str_list *s, struct str_list *t,
                    int *k1, int *k2) {
@@ -208,14 +181,11 @@ int main(void) {
   while (scanf("%d", &n_gram_len) == 1) {
     create_n_grams(s, s_n_grams, n_gram_len);
     create_n_grams(t, t_n_grams, n_gram_len);
-    //str_list_print(t_n_grams);
 
     k1 = 0;
     k2 = 0;
     score = 0;
     C = unique_n_grams(s_n_grams, t_n_grams, &k1, &k2);
-    //printf("%d\n", k1);
-    //printf("%d\n", k2);
     k = min(k1, k2);
     if (k != 0) {
       score = (C * 100) / k;
